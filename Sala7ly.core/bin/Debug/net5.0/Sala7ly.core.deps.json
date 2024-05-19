@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Sala7ly.Core/1.0.0": {
+        "runtime": {
+          "Sala7ly.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Sala7ly.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
