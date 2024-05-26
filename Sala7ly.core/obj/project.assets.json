@@ -16,11 +16,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\4 First Semester\\Gratuation project\\BackEnd\\Sala7ly\\Sala7ly.core\\Sala7ly.core.csproj",
-      "projectName": "Sala7ly.core",
-      "projectPath": "D:\\4 First Semester\\Gratuation project\\BackEnd\\Sala7ly\\Sala7ly.core\\Sala7ly.core.csproj",
+      "projectUniqueName": "C:\\SalahlyProject\\Sala7ly.core\\Sala7ly.Core.csproj",
+      "projectName": "Sala7ly.Core",
+      "projectPath": "C:\\SalahlyProject\\Sala7ly.core\\Sala7ly.Core.csproj",
       "packagesPath": "C:\\Users\\Electronica Care\\.nuget\\packages\\",
-      "outputPath": "D:\\4 First Semester\\Gratuation project\\BackEnd\\Sala7ly\\Sala7ly.core\\obj\\",
+      "outputPath": "C:\\SalahlyProject\\Sala7ly.core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",

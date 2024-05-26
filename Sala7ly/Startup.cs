@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Sala7ly.EF;
 using Sala7ly.Core.Interfaces;
 using Sala7ly.EF.Repositories;
+using Sala7ly.Core;
 
 namespace Sala7ly
 {
@@ -38,7 +39,9 @@ namespace Sala7ly
 					b => b.MigrationsAssembly(typeof(Sala7lyDbContext).Assembly.FullName));
 			});
 
-			services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+			//services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+			services.AddTransient<IUnitOfWork, UnitOfWork>();
+
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
 			{

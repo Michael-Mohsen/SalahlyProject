@@ -10,3 +10,15 @@ D:\4 First Semester\Gratuation project\BackEnd\Sala7ly\Sala7ly.core\obj\Debug\ne
 D:\4 First Semester\Gratuation project\BackEnd\Sala7ly\Sala7ly.core\obj\Debug\net5.0\Sala7ly.core.dll
 D:\4 First Semester\Gratuation project\BackEnd\Sala7ly\Sala7ly.core\obj\Debug\net5.0\ref\Sala7ly.core.dll
 D:\4 First Semester\Gratuation project\BackEnd\Sala7ly\Sala7ly.core\obj\Debug\net5.0\Sala7ly.core.pdb
+C:\SalahlyProject\Sala7ly.core\bin\Debug\net5.0\Sala7ly.Core.deps.json
+C:\SalahlyProject\Sala7ly.core\bin\Debug\net5.0\Sala7ly.Core.dll
+C:\SalahlyProject\Sala7ly.core\bin\Debug\net5.0\ref\Sala7ly.Core.dll
+C:\SalahlyProject\Sala7ly.core\bin\Debug\net5.0\Sala7ly.Core.pdb
+C:\SalahlyProject\Sala7ly.core\obj\Debug\net5.0\Sala7ly.Core.csproj.AssemblyReference.cache
+C:\SalahlyProject\Sala7ly.core\obj\Debug\net5.0\Sala7ly.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\SalahlyProject\Sala7ly.core\obj\Debug\net5.0\Sala7ly.Core.AssemblyInfoInputs.cache
+C:\SalahlyProject\Sala7ly.core\obj\Debug\net5.0\Sala7ly.Core.AssemblyInfo.cs
+C:\SalahlyProject\Sala7ly.core\obj\Debug\net5.0\Sala7ly.Core.csproj.CoreCompileInputs.cache
+C:\SalahlyProject\Sala7ly.core\obj\Debug\net5.0\Sala7ly.Core.dll
+C:\SalahlyProject\Sala7ly.core\obj\Debug\net5.0\ref\Sala7ly.Core.dll
+C:\SalahlyProject\Sala7ly.core\obj\Debug\net5.0\Sala7ly.Core.pdb

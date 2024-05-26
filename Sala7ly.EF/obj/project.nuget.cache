@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y8/AJk8eGD01/VGcrzlz0jr9R2RCORbbKjs1/wCkyuXdnGTHHt3Tyyzlf7liLuvc84ji4LB5jxz2paTMJmKcFA==",
+  "dgSpecHash": "sTb23L5yXFmlvmQstKim1Mg1JtD7GIQHXLkOouXIQXcDWIghSngnSZy2i3uUNQyzq31KJMBiXrRWM/3/maCp5Q==",
   "success": true,
-  "projectFilePath": "D:\\4 First Semester\\Gratuation project\\BackEnd\\Sala7ly\\Sala7ly.EF\\Sala7ly.EF.csproj",
+  "projectFilePath": "C:\\SalahlyProject\\Sala7ly.EF\\Sala7ly.EF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Electronica Care\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Electronica Care\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

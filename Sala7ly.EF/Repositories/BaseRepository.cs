@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Sala7ly.Core.Consts;
 using Sala7ly.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -32,13 +33,13 @@ namespace Sala7ly.EF.Repositories
 			return await _context.Set<T>().FindAsync(id);
 		}
 
-		public T Find(Expression<Func<T, bool>> match)
+		public T Find(Expression<Func<T, bool>> criteria)
 		{
-			return _context.Set<T>().SingleOrDefault(match);
+			return _context.Set<T>().SingleOrDefault(criteria);
 		}
 
 
-		public T Find(Expression<Func<T, bool>> match, string[] includes = null)
+		public T Find(Expression<Func<T, bool>> criteria, string[] includes = null)
 		{
 			IQueryable<T> query = _context.Set<T>();
 			if (includes != null)
@@ -48,10 +49,10 @@ namespace Sala7ly.EF.Repositories
 					query = query.Include(item);
 				}
 			}
-			return query.SingleOrDefault(match);
+			return query.SingleOrDefault(criteria);
 		}
 
-		public IEnumerator<T> FindAll(Expression<Func<T, bool>> match, string[] includes = null)
+		public IEnumerable<T> FindAll(Expression<Func<T, bool>> criteria, string[] includes = null)
 		{
 			IQueryable<T> query = _context.Set<T>();
 			if (includes != null)
@@ -61,7 +62,85 @@ namespace Sala7ly.EF.Repositories
 					query = query.Include(item);
 				}
 			}
-			return query.Where(match).ToList().GetEnumerator();
+			return query.Where(criteria).ToList();
+		}
+		public IEnumerable<T> FindAll(Expression<Func<T, bool>> criteria, int take, int skip)
+		{
+			
+			return _context.Set<T>().Where(criteria).Skip(skip).Take(take).ToList();
+		}
+
+		public IEnumerable<T> FindAll(Expression<Func<T, bool>> criteria, int? take, int? skip,
+			Expression<Func<T, object>> orderBy = null, string orderByDirection = OrderBy.Ascending)
+		{
+			IQueryable<T> query = _context.Set<T>().Where(criteria);
+			if (take.HasValue)
+			{
+				query = query.Take(take.Value);
+			}
+
+			if (skip.HasValue)
+			{
+				query = query.Skip(skip.Value);
+			}
+
+			if (orderBy != null)
+			{
+				if (orderByDirection == OrderBy.Ascending)
+					query = query.OrderBy(orderBy);
+				else
+					query = query.OrderByDescending(orderBy);		
+			}
+
+			return query.ToList();
+		}
+		public T Add(T entity)
+		{
+			_context.Set<T>().Add(entity);
+			
+			//_context.SaveChanges();
+
+			return entity;
+		}
+
+		public IEnumerable<T> AddRange(IEnumerable<T> entities)
+		{
+			_context.Set<T>().AddRange(entities);
+			
+			//_context.SaveChanges();
+
+			return entities;
+		}
+
+		public T Update(T entity)
+		{
+			_context.Update(entity);
+			return entity;
+		}
+
+		public void Delete(T entity)
+		{
+			_context.Set<T>().Remove(entity);
+		}
+
+		public void DeleteRange(IEnumerable<T> entities)
+		{
+			_context.Set<T>().RemoveRange(entities);
+		}
+		
+		public void Attach(T entity)
+		{
+			_context.Set<T>().Attach(entity);
+		}
+		
+		public int Count()
+		{
+			return _context.Set<T>().Count();
+		}
+		
+		public int Count(Expression<Func<T, bool>> criteria)
+		{
+			return _context.Set<T>().Count(criteria);
 		}
 	}
 }

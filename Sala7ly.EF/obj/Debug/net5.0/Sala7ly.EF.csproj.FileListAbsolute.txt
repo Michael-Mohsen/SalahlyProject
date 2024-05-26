@@ -16,3 +16,21 @@ D:\4 First Semester\Gratuation project\BackEnd\Sala7ly\Sala7ly.EF\obj\Debug\net5
 D:\4 First Semester\Gratuation project\BackEnd\Sala7ly\Sala7ly.EF\bin\Debug\net5.0\Sala7ly.Core.dll
 D:\4 First Semester\Gratuation project\BackEnd\Sala7ly\Sala7ly.EF\bin\Debug\net5.0\Sala7ly.Core.pdb
 D:\4 First Semester\Gratuation project\BackEnd\Sala7ly\Sala7ly.EF\obj\Debug\net5.0\Sala7ly.EF.csproj.CopyComplete
+C:\SalahlyProject\Sala7ly.EF\bin\Debug\net5.0\Sala7ly.EF.deps.json
+C:\SalahlyProject\Sala7ly.EF\bin\Debug\net5.0\Sala7ly.EF.runtimeconfig.json
+C:\SalahlyProject\Sala7ly.EF\bin\Debug\net5.0\Sala7ly.EF.runtimeconfig.dev.json
+C:\SalahlyProject\Sala7ly.EF\bin\Debug\net5.0\Sala7ly.EF.dll
+C:\SalahlyProject\Sala7ly.EF\bin\Debug\net5.0\ref\Sala7ly.EF.dll
+C:\SalahlyProject\Sala7ly.EF\bin\Debug\net5.0\Sala7ly.EF.pdb
+C:\SalahlyProject\Sala7ly.EF\bin\Debug\net5.0\Sala7ly.Core.dll
+C:\SalahlyProject\Sala7ly.EF\bin\Debug\net5.0\Sala7ly.Core.pdb
+C:\SalahlyProject\Sala7ly.EF\obj\Debug\net5.0\Sala7ly.EF.csproj.AssemblyReference.cache
+C:\SalahlyProject\Sala7ly.EF\obj\Debug\net5.0\Sala7ly.EF.GeneratedMSBuildEditorConfig.editorconfig
+C:\SalahlyProject\Sala7ly.EF\obj\Debug\net5.0\Sala7ly.EF.AssemblyInfoInputs.cache
+C:\SalahlyProject\Sala7ly.EF\obj\Debug\net5.0\Sala7ly.EF.AssemblyInfo.cs
+C:\SalahlyProject\Sala7ly.EF\obj\Debug\net5.0\Sala7ly.EF.csproj.CoreCompileInputs.cache
+C:\SalahlyProject\Sala7ly.EF\obj\Debug\net5.0\Sala7ly.EF.csproj.CopyComplete
+C:\SalahlyProject\Sala7ly.EF\obj\Debug\net5.0\Sala7ly.EF.dll
+C:\SalahlyProject\Sala7ly.EF\obj\Debug\net5.0\ref\Sala7ly.EF.dll
+C:\SalahlyProject\Sala7ly.EF\obj\Debug\net5.0\Sala7ly.EF.pdb
+C:\SalahlyProject\Sala7ly.EF\obj\Debug\net5.0\Sala7ly.EF.genruntimeconfig.cache
