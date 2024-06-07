@@ -15,84 +15,97 @@ namespace Sala7ly.Controllers
 	[ApiController]
 	public class AdminsController : ControllerBase
 	{
-
-		//private readonly IBaseRepository<Admin> _adminsRepository;
 		private readonly IUnitOfWork _unitOfWork;
-		
-		//public AdminsController(IBaseRepository<Admin> adminsRepository)
 		public AdminsController(IUnitOfWork unitOfWork)
 		{
-			//_adminsRepository = adminsRepository;
 			_unitOfWork = unitOfWork;
 		}
 
-		// Get one admin by Id
+		// Get Admin by Id
 		[HttpGet]
-		public IActionResult GetById()
+		[HttpGet("GetAdminById")]
+		public async Task<IActionResult> GetAdminById()
 		{
-			//return Ok(_adminsRepository.GetById(3));
-			return Ok(_unitOfWork.Admins.GetById(3));
-		}
-
-		[HttpGet("GetByIdAsync")]
-		public async Task<IActionResult> GetByIdAsync()
-		{
-			//return Ok(await _adminsRepository.GetByIdAsync(3));
 			return Ok(await _unitOfWork.Admins.GetByIdAsync(3));
 		}
 
 		//Get All Admins
-		[HttpGet("GetAll")]
-		public IActionResult GetAll()
+		[HttpGet("GetAllAdmins")]
+		public async Task<IActionResult> GetAllAdmins()
 		{
-			//return Ok(_adminsRepository.GetAll());
-			return Ok(_unitOfWork.Admins.GetAll());
+			return Ok(await _unitOfWork.Admins.GetAllAsync());
 		}
 
 		//Get Admin by Age
-		[HttpGet("GetByAge")]
-		public IActionResult GetByAge()
+		[HttpGet("GetAdminByAge")]
+		public async Task<IActionResult> GetAdminByAge()
 		{
-			//return Ok(_adminsRepository.Find(b => b.Age == 23));
-			return Ok(_unitOfWork.Admins.Find(b => b.Age == 23));
+			try
+			{
+				var admin = await _unitOfWork.Admins.FindAllAsync(b => b.Age == 23);
+
+				if (admin == null)
+				{
+					return NotFound("No admin found with age 23");
+				}
+
+				return Ok(admin);
+			}
+			catch (Exception)
+			{
+				return StatusCode(500, "An internal server error occurred.");
+			}
 		}
 
 		// Get Admin by name
-		[HttpGet("GetByName")]
-		public IActionResult GetByName()
+		[HttpGet("GetAdminByName")]
+		public async Task<IActionResult> GetAdminByName()
 		{
-			//return Ok(_adminsRepository.Find(b => b.Name == "Michael"));
-			return Ok(_unitOfWork.Admins.Find(b => b.Name == "Michael"));
+			return Ok(await _unitOfWork.Admins.FindAllAsync(b => b.Name == "Michael Mohsen"));
 		}
 
 		// Get all admins with department
-		[HttpGet("GetAllWithDep")]
-		public IActionResult GetAllWithDep()
+		[HttpGet("GetAllAdminsWithDep")]
+		public async Task<IActionResult> GetAllAdminsWithDep()
 		{
-			//return Ok(_adminsRepository.FindAll(a => a.Age == 23, new[] { "Department" }));
-			return Ok(_unitOfWork.Admins.FindAll(a => a.Age == 23, new[] { "Department" }));
+			try
+			{
+				var admins = await _unitOfWork.Admins.FindAllAsync(a => a.Name == "Michael Mohsen", new[] { "Department" });
 
+				if (admins == null || !admins.Any())
+				{
+					return NotFound("No admins found with age 23.");
+				}
+
+				return Ok(admins);
+			}
+			catch (Exception)
+			{
+				return StatusCode(500, "An internal server error occurred.");
+			}
 		}
 
-		[HttpGet("GetOrdered")]
-		public IActionResult GetOrdered()
+		[HttpGet("GetOrderAdmin")]
+		public async Task<IActionResult> GetOrderAdmin()
 		{
-			//return Ok(_adminsRepository.FindAll(a => a.Age == 23, null, null, a => a.Id));
-			//OR
-			//return Ok(_adminsRepository.FindAll(a => a.Age == 23, null, null, a => a.Id, OrderBy.Descending));
-			return Ok(_unitOfWork.Admins.FindAll(a => a.Age == 23, null, null, a => a.Id, OrderBy.Descending));
+			return Ok(await _unitOfWork.Admins.FindAllAsync(a => a.Age == 23, null, null, a => a.Id, OrderBy.Descending));
 		}
 
-		[HttpPost("AddOne")]
-		public IActionResult AddOne()
+		[HttpPost("AddAdmin")]
+		public async Task<IActionResult> AddAdmin()
 		{
-			//return Ok(_adminsRepository.Add(new Admin {Name = "Ahmed", Age = 30, Phone = "01788888888", DepartmentId = 2 }));
-			var admin = _unitOfWork.Admins.Add(new Admin { Name = "Ahmed", Age = 30, Phone = "01788888888", DepartmentId = 2 });
+			var homeAddress = new Address
+			{
+				Id = 25,
+				Street = "Cairo",
+				City = "Cairo",
+				Country = "Cairo",
+				State = "Cairo",
+				PostalCode = "165498"
+			};
+			var admin = await _unitOfWork.Admins.AddAsync(new Admin { Name = "Ahmed", Age = 30, Phone = "01788888888", HomeAddress = homeAddress , DepartmentId = 2 });
 			_unitOfWork.Complete();
 			return Ok(admin);
-			//return Ok(_unitOfWork.Admins.SpecialMethod());
 		}
-
-
 	}
 }

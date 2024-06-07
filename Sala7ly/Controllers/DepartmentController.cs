@@ -14,35 +14,35 @@ namespace Sala7ly.Controllers
 	[ApiController]
 	public class DepartmentController : ControllerBase
 	{
-		//private readonly IBaseRepository<Department> _departmentsRepository;
 		private readonly IUnitOfWork _unitOfWork;
-		//public DepartmentController(IBaseRepository<Department> departmentsRepository)
 		public DepartmentController(IUnitOfWork unitOfWork)
 		{
 			_unitOfWork = unitOfWork;
 		}
 
 		[HttpGet]
-		public IActionResult GetDepById()
+		public async Task<IActionResult> GetDepById()
 		{
-			//return Ok(_departmentsRepository.GetById(1));
-			return Ok(_unitOfWork.Departments.GetById(1));
+			return Ok(await _unitOfWork.Departments.GetByIdAsync(1));
 		}
 
+		[HttpGet("GetAllDep")]
+		public async Task<IActionResult> GetAllDep()
+		{
+			return Ok(await _unitOfWork.Departments.GetAllAsync());
+		}
 		[HttpGet("GetDepByName")]
-		public IActionResult GetDepByName()
+		public async Task<IActionResult> GetDepByName()
 		{
-			//return Ok(_departmentsRepository.Find(b => b.Name == "Manage"));
-			return Ok(_unitOfWork.Departments.Find(b => b.Name == "Manage"));
+			return Ok(await _unitOfWork.Departments.FindAllAsync(b => b.Name == "Manage"));
 		}
 
-		public IActionResult AddOne()
+		[HttpPost("AddDep")]
+		public async Task<IActionResult> AddDep()
 		{
-			//return Ok(_adminsRepository.Add(new Admin {Name = "Ahmed", Age = 30, Phone = "01788888888", DepartmentId = 2 }));
-			var department = _unitOfWork.Departments.Add(new Department {Name = "Sales"});
+			var department = await _unitOfWork.Departments.AddAsync(new Department {Name = "Sales"});
 			_unitOfWork.Complete();
 			return Ok(department);
-			//return Ok(_unitOfWork.Admins.SpecialMethod());
 		}
 	}
 }

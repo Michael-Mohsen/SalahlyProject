@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Sala7ly.Core.Interfaces
 {
-	public interface IAdminsRepository : IBaseRepository<Admin>
+	public interface ISparePartsRepository : IBaseRepository<SpareParts>
 	{
-		IEnumerable<Admin> SpecialMethod();
+		IEnumerable<SpareParts> SpecialMethod();
 	}
 }

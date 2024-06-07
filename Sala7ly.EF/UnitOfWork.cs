@@ -17,7 +17,9 @@ namespace Sala7ly.EF
 		//public IBaseRepository<Admin> Admins { get; private set; }
 		public IAdminsRepository Admins { get; private set; }
 
-		public IBaseRepository<Department> Departments { get; private set; }
+		//public IBaseRepository<Department> Departments { get; private set; }
+		public IDepartmentsRepository Departments { get; private set; }
+		public ISparePartsRepository SpareParts { get; private set; }
 
 		public UnitOfWork(Sala7lyDbContext context)
 		{
@@ -25,7 +27,9 @@ namespace Sala7ly.EF
 
 			//Admins = new BaseRepository<Admin>(_context);
 			Admins = new AdminsRepository(_context);
-			Departments = new BaseRepository<Department>(_context);
+			//Departments = new BaseRepository<Department>(_context);
+			Departments = new DepartmentsRepository(_context);
+			SpareParts = new SparePartsRepository(_context);
 		}
 		//Return number of row that affected with changes
 		public int Complete()
