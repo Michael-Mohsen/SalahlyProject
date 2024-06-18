@@ -21,32 +21,28 @@ namespace Sala7ly.Controllers
 			_unitOfWork = unitOfWork;
 		}
 
-		// Get Admin by Id
-		[HttpGet]
 		[HttpGet("GetAdminById")]
-		public async Task<IActionResult> GetAdminById()
+		public async Task<IActionResult> GetAdminById(int id)
 		{
-			return Ok(await _unitOfWork.Admins.GetByIdAsync(3));
+			return Ok(await _unitOfWork.Admins.GetByIdAsync(id));
 		}
 
-		//Get All Admins
 		[HttpGet("GetAllAdmins")]
 		public async Task<IActionResult> GetAllAdmins()
 		{
 			return Ok(await _unitOfWork.Admins.GetAllAsync());
 		}
 
-		//Get Admin by Age
 		[HttpGet("GetAdminByAge")]
-		public async Task<IActionResult> GetAdminByAge()
+		public async Task<IActionResult> GetAdminByAge(int age)
 		{
 			try
 			{
-				var admin = await _unitOfWork.Admins.FindAllAsync(b => b.Age == 23);
+				var admin = await _unitOfWork.Admins.FindAllAsync(b => b.Age == age);
 
 				if (admin == null)
 				{
-					return NotFound("No admin found with age 23");
+					return NotFound($"No admin found with age {age}");
 				}
 
 				return Ok(admin);
@@ -57,24 +53,23 @@ namespace Sala7ly.Controllers
 			}
 		}
 
-		// Get Admin by name
 		[HttpGet("GetAdminByName")]
-		public async Task<IActionResult> GetAdminByName()
+		public async Task<IActionResult> GetAdminByName(string name)
 		{
-			return Ok(await _unitOfWork.Admins.FindAllAsync(b => b.Name == "Michael Mohsen"));
+			return Ok(await _unitOfWork.Admins.FindAllAsync(b => b.Name == name));
 		}
 
-		// Get all admins with department
+
 		[HttpGet("GetAllAdminsWithDep")]
-		public async Task<IActionResult> GetAllAdminsWithDep()
+		public async Task<IActionResult> GetAllAdminsWithDep(string name, string department)
 		{
 			try
 			{
-				var admins = await _unitOfWork.Admins.FindAllAsync(a => a.Name == "Michael Mohsen", new[] { "Department" });
+				var admins = await _unitOfWork.Admins.FindAllAsync(a => a.Name == name, new[] { department });
 
 				if (admins == null || !admins.Any())
 				{
-					return NotFound("No admins found with age 23.");
+					return NotFound($"No admins found with age {department}.");
 				}
 
 				return Ok(admins);
@@ -86,9 +81,9 @@ namespace Sala7ly.Controllers
 		}
 
 		[HttpGet("GetOrderAdmin")]
-		public async Task<IActionResult> GetOrderAdmin()
+		public async Task<IActionResult> GetOrderAdmin(string name)
 		{
-			return Ok(await _unitOfWork.Admins.FindAllAsync(a => a.Age == 23, null, null, a => a.Id, OrderBy.Descending));
+			return Ok(await _unitOfWork.Admins.FindAllAsync(a => a.Name == name, null, null, a => a.Id, OrderBy.Descending));
 		}
 
 		[HttpPost("AddAdmin")]
@@ -103,7 +98,7 @@ namespace Sala7ly.Controllers
 				State = "Cairo",
 				PostalCode = "165498"
 			};
-			var admin = await _unitOfWork.Admins.AddAsync(new Admin { Name = "Ahmed", Age = 30, Phone = "01788888888", HomeAddress = homeAddress , DepartmentId = 2 });
+			var admin = await _unitOfWork.Admins.AddOneAsync(new Admin { Name = "Ahmed", Age = 30, Phone = "01788888888", HomeAddress = homeAddress , DepartmentId = 2 });
 			_unitOfWork.Complete();
 			return Ok(admin);
 		}

@@ -15,6 +15,9 @@ using Sala7ly.EF;
 using Sala7ly.Core.Interfaces;
 using Sala7ly.EF.Repositories;
 using Sala7ly.Core;
+using Sala7ly.EF.Mapping;
+using AutoMapper;
+
 
 namespace Sala7ly
 {
@@ -27,20 +30,19 @@ namespace Sala7ly
 
 		public IConfiguration Configuration { get; }
 
-		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
 			var connectionString = Configuration.GetConnectionString("DefaultConnection");
 			Console.WriteLine($"Connection String: {connectionString}");
 
 			services.AddDbContext<Sala7lyDbContext>(options =>{
-				//options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 				options.UseSqlServer(connectionString,
 					b => b.MigrationsAssembly(typeof(Sala7lyDbContext).Assembly.FullName));
 			});
 
-			//services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 			services.AddTransient<IUnitOfWork, UnitOfWork>();
+
+			services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
@@ -49,7 +51,6 @@ namespace Sala7ly
 			});
 		}
 
-		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
 			if (env.IsDevelopment())

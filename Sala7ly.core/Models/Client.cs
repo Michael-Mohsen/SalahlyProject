@@ -12,6 +12,9 @@ namespace Sala7ly.Core.Models
 		public int Id { get; set; }
 		[Required]
 		public string Name { get; set; }
+
+		[Required(ErrorMessage = "Username is required.")]
+		public string UserName { get; set; }
 		[Required]
 		[RegularExpression(@"^\d{11}$", ErrorMessage = "Phone number must be 11 digits.")]
 		public string Phone { get; set; }
@@ -25,5 +28,6 @@ namespace Sala7ly.Core.Models
 		public virtual List<Payment> Payments { get; set; }
 		public virtual List<ClientWorker> ClientWorkers { get; set; }
 		public virtual List<Order> Orders { get; set; }
+
 	}
 }

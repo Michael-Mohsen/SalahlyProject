@@ -22,6 +22,7 @@ namespace Sala7ly.EF
 		public DbSet<Payment> Payments { get; set; }
 		public DbSet<SpareParts> SpareParts { get; set; }
 		public DbSet<Worker> Workers { get; set; }
+		public DbSet<Services> Services { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

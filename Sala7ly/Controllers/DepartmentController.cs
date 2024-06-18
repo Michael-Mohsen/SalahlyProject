@@ -40,7 +40,7 @@ namespace Sala7ly.Controllers
 		[HttpPost("AddDep")]
 		public async Task<IActionResult> AddDep()
 		{
-			var department = await _unitOfWork.Departments.AddAsync(new Department {Name = "Sales"});
+			var department = await _unitOfWork.Departments.AddOneAsync(new Department {Name = "Sales"});
 			_unitOfWork.Complete();
 			return Ok(department);
 		}

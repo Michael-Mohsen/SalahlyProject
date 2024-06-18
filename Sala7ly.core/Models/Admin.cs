@@ -13,6 +13,9 @@ namespace Sala7ly.Core.Models
 		public int Id { get; set; }
 		[Required]
 		public string Name { get; set; }
+
+		[Required(ErrorMessage = "Username is required.")]
+		public string UserName { get; set; }
 		[Required]
 		public int Age { get; set; }
 		[Required]
@@ -24,5 +27,6 @@ namespace Sala7ly.Core.Models
 		[ForeignKey("Department")]
 		public int DepartmentId { get; set; }
 		public virtual Department Department { get; set; }
+		
 	}
 }

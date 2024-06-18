@@ -126,3 +126,5 @@ C:\SalahlyProject\Sala7ly\obj\Debug\net5.0\Sala7ly.dll
 C:\SalahlyProject\Sala7ly\obj\Debug\net5.0\ref\Sala7ly.dll
 C:\SalahlyProject\Sala7ly\obj\Debug\net5.0\Sala7ly.pdb
 C:\SalahlyProject\Sala7ly\obj\Debug\net5.0\Sala7ly.genruntimeconfig.cache
+C:\SalahlyProject\Sala7ly\bin\Debug\net5.0\AutoMapper.dll
+C:\SalahlyProject\Sala7ly\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

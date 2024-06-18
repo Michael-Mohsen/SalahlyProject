@@ -10,13 +10,10 @@ namespace Sala7ly.Core
 {
 	public interface IUnitOfWork : IDisposable
 	{
-		//IBaseRepository<Admin> Admins { get; }
 		IAdminsRepository Admins { get; }
-		
-		//IBaseRepository<Department> Departments { get; }
 		IDepartmentsRepository Departments { get; }
 		ISparePartsRepository SpareParts { get; }
-
+		IServicesRepo Services { get; }
 		//Return number of row that affected with changes
 		int Complete();
 

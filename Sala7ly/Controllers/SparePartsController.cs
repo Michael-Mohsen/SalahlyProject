@@ -18,11 +18,11 @@ namespace Sala7ly.Controllers
 			_unitOfWork = unitOfWork;
 		}
 
-		[HttpGet]
 		[HttpGet("GetItemById")]
-		public async Task<IActionResult> GetItemById()
+		public async Task<IActionResult> GetItemById(int id)
 		{
-			return Ok(await _unitOfWork.SpareParts.GetByIdAsync(5));
+			
+			return Ok(await _unitOfWork.SpareParts.GetByIdAsync(id));
 		}
 
 		[HttpGet("GetAllItems")]
@@ -32,9 +32,9 @@ namespace Sala7ly.Controllers
 		}
 
 		[HttpGet("GetItemByName")]
-		public async Task<IActionResult> GetItemByName()
+		public async Task<IActionResult> GetItemByName(string name)
 		{
-			var item = await _unitOfWork.SpareParts.FindAllAsync(i => i.Name == "Fan");
+			var item = await _unitOfWork.SpareParts.FindAllAsync(i => i.Name == name);
 			if (item == null)
 			{
 				return NotFound("No item found with that name");
@@ -43,9 +43,9 @@ namespace Sala7ly.Controllers
 		}
 
 		[HttpGet("GetItemByPrice")]
-		public async Task<IActionResult> GetItemByPrice()
+		public async Task<IActionResult> GetItemByPrice(decimal price)
 		{
-			var items = await _unitOfWork.SpareParts.FindAllAsync(i => i.Price == 1000);
+			var items = await _unitOfWork.SpareParts.FindAllAsync(i => i.Price == price);
 			if (items == null)
 			{
 				return NotFound("No items found with this price");
@@ -54,19 +54,21 @@ namespace Sala7ly.Controllers
 		}
 
 		[HttpGet("GetItemByAmount")]
-		public async Task<IActionResult> GetItemByAmount()
+		public async Task<IActionResult> GetItemByAmount(int amount)
 		{
-			var items = await _unitOfWork.SpareParts.FindAllAsync(i => i.Amount == 5);
+			var items = await _unitOfWork.SpareParts.FindAllAsync(i => i.Amount == amount);
 			if (items == null)
 			{
 				return NotFound("No items found with this amount");
 			}
 			return Ok(items);
 		}
+
 		[HttpPost("AddItem")]
 		public async Task<IActionResult> AddItem()
 		{
-			var item = await _unitOfWork.SpareParts.AddAsync(new SpareParts {Name = "dsfhh", Price = 1000, Amount = 5, Date = DateTime.Now , MerchantId = 1});
+			var NewSpare = new SpareParts { Name = "lm;ljo", Price = 6954, Amount = 11, Date = DateTime.Now, MerchantId = 1 };
+			var item = await _unitOfWork.SpareParts.AddOneAsync(NewSpare);
 			_unitOfWork.Complete();
 			return Ok(item);
 		}

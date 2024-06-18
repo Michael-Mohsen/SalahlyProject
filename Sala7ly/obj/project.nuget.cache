@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "eHUxxPPQQF/jvQtX/zopxZ1nbsN1N+NVr3cUApWslf6qX6wRe8/NSI3xRI5I+xzhdu2vMg+Rvlo+vZXkGeECcw==",
+  "dgSpecHash": "5E/r6lWQ0RABPe8bZXu3iDAOQ7s8+ooyl6bGRZIiG+EOc+3EevN/Qm61ZhzaAv14Q/DBVj+hUXa6sDKMKNQ6hQ==",
   "success": true,
   "projectFilePath": "C:\\SalahlyProject\\Sala7ly\\Sala7ly.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Electronica Care\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\Electronica Care\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\Electronica Care\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Electronica Care\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Electronica Care\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
